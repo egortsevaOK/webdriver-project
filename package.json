@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "description": "hometask selenium webdriverjs",
   "main": "index.js",
-
   "scripts": {
-    "test": "mocha"
-    
-
+    "postinstall": "webdriver-manager update --versions.chromeDriver=96.0.4664.45",
+    "test": "protractor protractor.config.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +23,7 @@
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^8.3.0",
     "mocha": "^9.1.3"
   }
