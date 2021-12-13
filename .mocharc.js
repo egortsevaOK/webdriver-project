@@ -1,3 +1,3 @@
 module.exports = {
-    spec: "webdriver-test.js"
+    spec: "./specs/webdriver-test.js"
 };

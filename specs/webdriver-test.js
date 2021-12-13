@@ -1,6 +1,7 @@
-const {Builder} = require('selenium-webdriver');
-const PageFactory = require('./web_pages/PageFactory');
+const {Builder, Capabilities} = require('selenium-webdriver');
+const PageFactory = require('../web_pages/PageFactory');
 const {expect} = require('chai');
+
 describe('Onliner catalog tests', async function() {
   this.timeout(30000);
   let driver;
@@ -24,6 +25,7 @@ describe('Onliner catalog tests', async function() {
     await pageFactory.getPage('Offers').clickYesButton();
     await pageFactory.getPage('Offers').buyNow();
     await pageFactory.getPage('Cart').showTitle();
-    expect(await pageFactory.getPage('Cart').getCartText()).to.include('Оформление заказа');
+    const cartTitle = await pageFactory.getPage('Cart').getCartText();
+    expect(cartTitle).to.include('Оформление заказа');
   });
 });
