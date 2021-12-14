@@ -1,17 +1,26 @@
 const {Builder, Capabilities} = require('selenium-webdriver');
 const PageFactory = require('../web_pages/PageFactory');
 const {expect} = require('chai');
+const chrome = require('selenium-webdriver/chrome');
 
 describe('Onliner catalog tests', async function() {
   this.timeout(30000);
   let driver;
   beforeEach(async () => {
-    driver = await new Builder().forBrowser('chrome').build();
+    const options = new chrome.Options();
+    options.addArguments('--window-size=1280x1024');
+    options.addArguments('--start-maximized');
+    options.addArguments('--headless');
+    options.addArguments('--incognito');
+    driver = await new Builder()
+        .usingServer('http://localhost:4444/wd/hub')
+        .withCapabilities(Capabilities.chrome()).setChromeOptions(options)
+        .build();
   });
   afterEach(async () => {
     await driver.quit();
   });
-  it('should open order form', async function() {
+  it('should open cart form', async function() {
     const pageFactory = new PageFactory(driver);
     await pageFactory.getPage('Catalog').load();
     await pageFactory.getPage('Catalog').selectCategory('Бытовая техника');

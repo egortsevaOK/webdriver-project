@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "webdriver-manager update --versions.chromeDriver=96.0.4664.45",
-    "test": "mocha"
+    "test": "mocha --parallel"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/egortsevaOK/atm-m6#readme",
   "dependencies": {
     "chromedriver": "^96.0.0",
+    "geckodriver": "^0.30.0",
     "selenium-webdriver": "^4.1.0"
   },
   "devDependencies": {
