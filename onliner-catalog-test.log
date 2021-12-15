@@ -1,0 +1,30 @@
+2021-12-16 00:43:44 info: Open catalog page
+2021-12-16 00:43:44 debug: Opening "https://catalog.onliner.by/" url
+2021-12-16 00:43:45 info: Select category from navigation list
+2021-12-16 00:43:45 debug: Clicking "Бытовая техника category"
+2021-12-16 00:43:45 info: Select subcategory from dropdown
+2021-12-16 00:43:45 debug: Hovering on "Уборка subcategory"
+2021-12-16 00:43:45 info: Select product type
+2021-12-16 00:43:45 debug: Clicking "Роботы-пылесосы product type"
+2021-12-16 00:43:48 debug: Scrolling "floor checkbox"
+2021-12-16 00:43:48 info: Filter products
+2021-12-16 00:43:48 debug: Clicking "floor checkbox"
+2021-12-16 00:43:48 debug: Scrolling "roborock checkbox"
+2021-12-16 00:43:48 info: Filter products
+2021-12-16 00:43:48 debug: Clicking "roborock checkbox"
+2021-12-16 00:43:48 info: Wait for applying filters
+2021-12-16 00:43:48 warn: Waiting "5000" milliseconds until "counter" contains text "Найдено"
+2021-12-16 00:43:49 info: View offers
+2021-12-16 00:43:49 debug: Clicking "Сравнение предложений на Roborock S7 (черный) button"
+2021-12-16 00:43:51 info: Scroll down page
+2021-12-16 00:43:51 debug: Scrolling "Confirm City Pop Up"
+2021-12-16 00:43:51 warn: Waiting "5000" milliseconds
+2021-12-16 00:43:51 debug: Scrolling "Confirm Button"
+2021-12-16 00:43:51 info: Confirm Minsk city
+2021-12-16 00:43:51 debug: Clicking "Confirm Button"
+2021-12-16 00:43:51 warn: Waiting "5000" milliseconds
+2021-12-16 00:43:51 debug: Scrolling "Buy Now Button"
+2021-12-16 00:43:51 info: Click on buy now button
+2021-12-16 00:43:51 debug: Clicking "Buy Now Button"
+2021-12-16 00:43:55 info: Get Cart Banner Text
+2021-12-16 00:43:55 debug: "Cart Title" element text is Оформление заказа

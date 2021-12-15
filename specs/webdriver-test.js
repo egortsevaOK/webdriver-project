@@ -7,15 +7,17 @@ describe('Onliner catalog tests', async function() {
   this.timeout(30000);
   let driver;
   beforeEach(async () => {
-    const options = new chrome.Options();
-    options.addArguments('--window-size=1280x1024');
-    options.addArguments('--start-maximized');
-    options.addArguments('--headless');
-    options.addArguments('--incognito');
-    driver = await new Builder()
-        .usingServer('http://localhost:4444/wd/hub')
-        .withCapabilities(Capabilities.chrome()).setChromeOptions(options)
-        .build();
+    driver = await new Builder().forBrowser('chrome').build();
+    // Selenium grid set up
+    // const options = new chrome.Options();
+    // options.addArguments('--window-size=1280x1024');
+    // options.addArguments('--start-maximized');
+    // options.addArguments('--headless');
+    // options.addArguments('--incognito');
+    // driver = await new Builder()
+    //     .usingServer('http://localhost:4444/wd/hub')
+    //     .withCapabilities(Capabilities.chrome()).setChromeOptions(options)
+    //     .build();
   });
   afterEach(async () => {
     await driver.quit();
