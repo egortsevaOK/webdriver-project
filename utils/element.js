@@ -1,10 +1,12 @@
 const {Builder, By, until} = require('selenium-webdriver');
+const logger = require('../config/logger.config');
 
 class Element {
-  constructor(driver, selectorType, selector) {
+  constructor(driver, selectorType, selector, elementName) {
     this.driver = driver;
     this.selectorType = selectorType;
     this.selector = selector;
+    this.elementName = elementName;
   }
 
   find() {
@@ -16,15 +18,20 @@ class Element {
     return this.element;
   }
   click() {
+    logger.debug(`Clicking "${this.elementName}"`);
     return this.find().click();
   };
-  getText() {
-    return this.find().getText();
+  async getText() {
+    const elementText = await this.find().getText();
+    logger.debug(`"${this.elementName}" element text is ${elementText}`);
+    return elementText;
   };
   typeText(text) {
+    logger.debug(`"Text ${text}" is entered into${this.elementName}`);
     return this.find().sendKeys(text);
   };
   hoverOn() {
+    logger.debug(`Hovering on "${this.elementName}"`);
     return this.driver.actions().move({origin: this.find()}).perform();
   };
   isDisplayed() {
@@ -38,15 +45,19 @@ class Element {
     }
   };
   waitForElementContainsText(text, ms) {
+    logger.warn(`Waiting "${ms}" milliseconds until "${this.elementName}" contains text "${text}"`);
     return this.driver.wait(until.elementTextContains(this.find(), text), ms);
   };
   waitForVisibility(ms) {
+    logger.warn(`Waiting "${ms}" milliseconds`);
     return this.driver.wait(until.elementIsVisible(this.find(), ms));
   };
   scroll() {
+    logger.debug(`Scrolling "${this.elementName}"`);
     return this.driver.executeScript('arguments[0].scrollIntoView();', this.find());
   };
   check() {
+    logger.debug(`Clicking "${this.elementName}"`);
     return this.driver.executeScript('arguments[0].click()', this.find());
   }
 }
